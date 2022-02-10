@@ -36,6 +36,7 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+        DataPersistense.instance.changeBestScore();
     }
 
     private void Update()
@@ -71,6 +72,7 @@ public class MainManager : MonoBehaviour
     public void GameOver()
     {
         m_GameOver = true;
+        DataPersistense.instance.setHighScore(m_Points);
         GameOverText.SetActive(true);
     }
 }
